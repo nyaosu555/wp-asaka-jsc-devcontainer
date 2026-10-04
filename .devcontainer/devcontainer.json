@@ -1,0 +1,32 @@
+{
+  "name": "WordPress DevContainer",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "wordpress",
+  "workspaceFolder": "/var/www/html/wp-content/themes/asaka-junior-sports-club",
+  "postCreateCommand": "npm install",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "devsense.phptools-vscode"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "[javascript]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[json]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[css]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[php]": {
+          "editor.defaultFormatter": "devsense.phptools-vscode"
+        }
+      }
+    }
+  }
+}

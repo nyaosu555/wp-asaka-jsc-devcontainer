@@ -1,0 +1,30 @@
+services:
+  wordpress:
+    build: .
+    restart: always
+    ports:
+      - 8082:80
+      - "3000:3000" # BrowserSync 用
+      - "3001:3001" # BrowserSync UI 用
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: exampleuser
+      WORDPRESS_DB_PASSWORD: examplepass
+      WORDPRESS_DB_NAME: exampledb
+    volumes:
+      - ./src:/var/www/html/wp-content/themes/asaka-junior-sports-club
+      - /var/www/html/wp-content/themes/asaka-junior-sports-club/node_modules
+
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: exampledb
+      MYSQL_USER: exampleuser
+      MYSQL_PASSWORD: examplepass
+      MYSQL_ROOT_PASSWORD: examplerootpassword
+    volumes:
+      - db:/var/lib/mysql
+
+volumes:
+  db:
